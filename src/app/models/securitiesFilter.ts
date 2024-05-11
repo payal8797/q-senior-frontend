@@ -9,3 +9,9 @@ export interface SecuritiesFilter extends PagingFilter {
   currencies?: string[],
   isPrivate?: boolean,
 }
+
+export interface FilterCols {
+  label: string;
+  type: string;
+  name: string;
+}

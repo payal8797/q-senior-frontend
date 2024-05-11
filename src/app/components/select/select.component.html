@@ -1,0 +1,18 @@
+<mat-form-field [formGroup]="formGroup">
+  <mat-label>{{ filterCols.label }}</mat-label>
+  <mat-select [formControlName]="filterCols.name" multiple #multiSelect>
+    <mat-select-trigger>
+      {{formGroup.get(filterCols.name)?.value?.[0] || ''}}
+      <ng-container *ngIf="formGroup.get(filterCols.name)?.value?.length > 1">
+        <span>
+          (+{{formGroup.get(filterCols.name)?.value?.length - 1}} {{formGroup.get(filterCols.name)?.value?.length === 2 ?
+          'other' : 'others'}})
+        </span>
+      </ng-container>
+    </mat-select-trigger>
+    <mat-option *ngFor="let value of multiSelectValues" [value]="value">{{ value }}</mat-option>
+    <button mat-icon-button matSuffix [disabled]="!isFilterSelected()" (click)="deselectAll(multiSelect)">
+      Clear
+    </button>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,39 @@
+<div class="filter-card">
+  <mat-card>
+    <mat-card-content>
+      <mat-grid-list cols="4" rowHeight="2em" class="filter-grid">
+        <form [formGroup]="formGroup" class="filter-form">
+          <div *ngFor="let filter of filterCols" class="filter-tile">
+            <mat-grid-tile>
+              <ng-container *ngIf="filter.type === 'input'">
+                <app-input
+                  [filterCols]="filter"
+                  [formGroup]="formGroup"
+                ></app-input>
+              </ng-container>
+          
+              <ng-container *ngIf="filter.type === 'multiselect'">
+                <app-select
+                  [filterCols]="filter"
+                  [formGroup]="formGroup"
+                ></app-select>
+              </ng-container>
+          
+              <ng-container *ngIf="filter.type === 'checkbox'">
+                <app-checkbox
+                  [filterCols]="filter"
+                  [formGroup]="formGroup"
+                ></app-checkbox>
+              </ng-container>
+            </mat-grid-tile>
+          </div>    
+        </form>
+      </mat-grid-list>
+    </mat-card-content>
+    <mat-card-actions class="reset-button-container">
+      <button mat-flat-button [disabled]="isFilterApplied()" (click)="resetFilter()" color="warn">
+        Reset Filter
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

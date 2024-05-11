@@ -1,5 +1,8 @@
-﻿<!-- Feel free to replace this placeholder with your filterbar -->
-<fieldset class="filter-bar-placeholder"><legend>Filter bar should go here</legend></fieldset>
+﻿<app-filter-bar
+  [filterCols]="filterCols"
+  (filterValueEvent)="getFilterValue($event)"
+  (resetFilterEvent)="resetFilter($event)"
+></app-filter-bar>
 
 <div class="table-wrapper">
   <div class="loading-indicator" *ngIf="isLoading"><mat-spinner></mat-spinner></div>

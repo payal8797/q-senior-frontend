@@ -1,0 +1,8 @@
+<mat-form-field [formGroup]="formGroup">
+  <mat-label>{{ filterCols.label }}</mat-label>
+  <input
+    matInput
+    placeholder="Enter {{filterCols.name}}"
+    [formControlName]="filterCols.name"
+  />
+</mat-form-field>

@@ -1,0 +1,22 @@
+[
+    {
+        "label": "Name",
+        "type": "input",
+        "name": "name"
+    },
+    {
+        "label": "Type",
+        "type": "multiselect",
+        "name": "types"
+    },
+    {
+        "label": "Currency",
+        "type": "multiselect",
+        "name": "currencies"
+    },
+    { 
+        "label": "Is private",
+        "type": "checkbox", 
+        "name": "isPrivate" 
+    }
+  ]
